@@ -1,0 +1,26 @@
+{
+  "name": "NMSAlphabetWeb",
+  "description": "An unofficial Android app for No Man's Sky (WIP)",
+  "homepage": "https://github.com/adrielcafe/NMSAlphabetWeb",
+  "keywords": [],
+  "version": "1.0.0",
+  "author": "Adriel Café <me@adriel.cafe>",
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrielcafe/NMSAlphabetWeb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adrielcafe/NMSAlphabetWeb/issues"
+  }
+}
