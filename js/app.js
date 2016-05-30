@@ -5,12 +5,18 @@ $(function(){
 	var Race = Parse.Object.extend("AlienRace");
 	var Word = Parse.Object.extend("AlienWord");
 	var WordTranslation = Parse.Object.extend("AlienWordTranslation");
-	
+
 	var races = [];
 	var words = [];
 	var translations = [];
 
-	// Parse.initialize(PARSE_APP_ID, PARSE_KEY);
+	// Load tabs HTML
+	$.each($('.include'), function(){
+		var file = '/html/' + $(this).data('include') + '.html';
+		$(this).load(file);
+	});
+
+	Parse.initialize(PARSE_APP_ID, PARSE_KEY);
 
 	// new Parse.Query(Race).find().then(function(result) {
 	// 	races = JSON.parse(JSON.stringify(result));
@@ -21,5 +27,5 @@ $(function(){
 	// 		}
 	// 	});
 	// });
-	
+
 });
