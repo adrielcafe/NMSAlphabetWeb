@@ -13,7 +13,7 @@ $(function(){
 	Parse.initialize(PARSE_APP_ID, PARSE_KEY);
 
   $('select').material_select();
-
+	plyr.setup();
 	// new Parse.Query(Race).find().then(function(result) {
 	// 	races = JSON.parse(JSON.stringify(result));
 	// 	new Vue({

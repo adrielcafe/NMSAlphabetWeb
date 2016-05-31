@@ -58,12 +58,12 @@ html
             h5.white-text
               i.small.material-icons android
               |  Android App
-            .video-container
-              iframe width="853" height="480" src="https://www.youtube.com/embed/N6f3i4qrlbY" frameborder="0" allowfullscreen=""
+            .plyr
+                .responsive-video data-video-id="N6f3i4qrlbY" data-type="youtube"
             #google-play-logo
   						a href="#" target="_blank"
   							img.responsive-img src="../img/google-play.png"
-          .col.l4.offset-l2.s12
+          .col.l5.offset-l1.s12
             h5.white-text
               i.small.material-icons info
               |  About
@@ -84,5 +84,6 @@ html
     script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"
   	script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"
   	script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"
+    script type="text/javascript" src="https://cdn.plyr.io/1.6.18/plyr.js"
   	script type="text/javascript" src="https://www.parsecdn.com/js/parse-latest.js"
   	script type="text/javascript" src="../js/app.min.js"
