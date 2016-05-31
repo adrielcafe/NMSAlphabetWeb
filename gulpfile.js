@@ -1,9 +1,12 @@
 var gulp = require('gulp');
 var express = require('express');
+var slim = require("gulp-slim");
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 
+var slimIndexFiles = './index.slim';
+var slimFiles = ['./*.slim', './html/*.slim'];
 var scssFiles = './css/*.sass';
 var jsFiles = ['./js/*.js', '!./js/*.min.js'];
 
@@ -13,7 +16,13 @@ gulp.task('server', function() {
 	app.listen(4000);
 });
 
-gulp.task('compress', function () {
+gulp.task('slim', function(){
+  gulp.src(slimIndexFiles)
+    .pipe(slim({pretty: true}))
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('minify', function () {
   return gulp.src(jsFiles)
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
@@ -28,8 +37,9 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
+	gulp.watch(slimFiles, ['slim']);
+	gulp.watch(jsFiles, ['minify']);
   gulp.watch(scssFiles, ['sass']);
-  gulp.watch(jsFiles, ['compress']);
 });
 
-gulp.task('default', ['server', 'compress', 'sass', 'watch']);
+gulp.task('default', ['server', 'slim', 'minify', 'sass', 'watch']);

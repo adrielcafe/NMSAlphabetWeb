@@ -10,13 +10,9 @@ $(function(){
 	var words = [];
 	var translations = [];
 
-	// Load tabs HTML
-	$.each($('.include'), function(){
-		var file = '/html/' + $(this).data('include') + '.html';
-		$(this).load(file);
-	});
-
 	Parse.initialize(PARSE_APP_ID, PARSE_KEY);
+
+  $('select').material_select();
 
 	// new Parse.Query(Race).find().then(function(result) {
 	// 	races = JSON.parse(JSON.stringify(result));

@@ -1,8 +1,192 @@
+@charset 'UTF-8'
+
+@import 'materialize'
+@import 'bourbon/bourbon'
+
+$bg-color: #F5F5F5
 
 body
   display: flex
-  min-height: 100vh
   flex-direction: column
+  min-height: 100vh
+  background: $bg-color
+
+.skewed-bg
+  @include transform(skew(0deg, 5deg))
+  outline: 1px solid transparent
+  background: $primary-color
+  padding: 100px 0
+  margin-top: -100px
+
+  header
+    @include transform(skew(0deg, -5deg))
+    background: $primary-color
+    min-height: 260px
+
+    #logo
+      display: inline-flex
+      height: 200px
+      margin-left: 10px
+
+      img
+        height: 100px
+        z-index: -1
+
+    #signin
+      float: right
+      height: 200px
+
+      img
+        height: 40px
+        margin-right: 10px
+
+    .progress
+      position: absolute
 
 main
   flex: 1 0 auto
+  z-index: 1
+
+  > .row
+    @include border-top-radius(5px)
+    @include border-right-radius(5px)
+    background: $bg-color
+    margin-top: -160px
+    padding: 20px
+    min-height: 500px
+
+  .tabs
+    background: transparent
+
+  .content
+    margin: 20px
+
+  #search
+
+    form .input-field
+
+      .card-content
+        padding: 10px 20px
+
+      input
+        border: none
+        box-shadow: none
+        margin: 0
+        font-size: 20px
+
+      i
+        position: absolute
+        top: 17px
+        right: 10px
+
+    #words
+
+      .card
+
+        .valign-wrapper
+          height: 125px
+          background: $secondary-color
+
+        h2
+          width: 100%
+          padding: 20px
+          text-align: center
+          display: block
+
+footer
+  background: $primary-color !important
+
+  .footer-copyright
+    background: #191D24 !important
+
+  #google-play-logo
+    text-align: center
+
+    img
+      height: 70px
+
+#fab-add
+  bottom: 32px
+  right: 32px
+
+
+// Logo animation
+// http://codepen.io/Jackthomsonn/pen/vOvNgL
+$logo-planet-color: $secondary-color
+$logo-moon-color: #9E9E9E
+$logo-animation: orbit
+$logo-gravitation-constant: 6.673
+$logo-t: 1.92
+
+@keyframes orbit
+  to
+    transform: rotate(360deg)
+
+@function orbit()
+  @return $logo-animation $logo-gravitation-constant * $logo-t + s linear infinite
+
+#logo-anim
+  display: flex
+  background: $primary-color
+  margin: 5%
+  float: left
+
+  .planet
+    background: $logo-planet-color
+    box-shadow: inset -15px -15px 0px darken($logo-planet-color, 2%)
+    width: 100px
+    height: 100px
+    border-radius: 100%
+
+    &:before
+      content: ''
+      background: darken($logo-planet-color, 5%)
+      border-radius: 100%
+      width: 10px
+      height: 10px
+      display: block
+      margin: 25px 50px
+
+    &:after
+      content: ''
+      background: darken($logo-planet-color, 4%)
+      border-radius: 100%
+      width: 25px
+      height: 25px
+      display: block
+      margin: -10px 20px
+
+  .orbit
+    width: 150px
+    height: 150px
+    border: 1px solid rgba(255, 255, 255, 0.12)
+    position: absolute
+    border-radius: 100%
+    margin: -25px -125px
+    animation: orbit()
+
+    .moon
+      background: $logo-moon-color
+      box-shadow: inset -7px -7px 0 darken($logo-moon-color, 7%)
+      width: 25px
+      height: 25px
+      border-radius: 100%
+      margin: 10px
+
+      &:before
+        content: ''
+        background: darken($logo-moon-color, 4%)
+        border-radius: 100%
+        width: 4.5px
+        height: 4.5px
+        display: inline-block
+        margin: 5px 5px
+
+      &:after
+        content: ''
+        background: darken($logo-moon-color, 4%)
+        border-radius: 100%
+        width: 4.5px
+        height: 4.5px
+        display: block
+        margin: -3.5px 10px

@@ -1,0 +1,87 @@
+doctype 5
+html
+  head
+    title NMS αβ
+
+    meta charset="utf-8"
+    meta name="author" content="Adriel Café"
+    meta name="keywords" content=""
+    meta name="description" content=""
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    link rel="icon" type="image/png" href="../img/icon.png"
+    link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons"
+    link rel="stylesheet" href="../css/app.min.css"
+ 
+  body
+    .skewed-bg
+      header.container
+        .progress.hide
+          .indeterminate
+        a href="#"
+          #logo-anim
+            .planet
+            .orbit
+              .moon
+          #logo.valign-wrapper
+              img.valign.responsive-img src="../img/logo.png"
+        #signin.valign-wrapper
+          img.circle.responsive-img src="http://www.adriel.cafe/img/adriel_cafe.jpg"
+          p
+            b.white-text Adriel Café
+            br
+            a href="#" Sign Out
+    
+    main.container
+      .row
+        .col.s12
+  	      ul.tabs
+  	        li.tab.col.s3
+              a.active href="#search" Search
+  	        li.tab.col.s3
+              a.active href="#translate" Translate
+  	        li.tab.col.s3.disabled
+              a href="#profile" Profile
+        == Slim::Template.new('html/search.slim').render()
+        == Slim::Template.new('html/translate.slim').render()
+        == Slim::Template.new('html/profile.slim').render()
+    
+    #fab-add.fixed-action-btn.horizontal
+      a.btn-floating.btn-large
+        i.large.material-icons add
+        
+    footer.page-footer
+      .container
+        .row
+          .col.l6.s12
+            h5.white-text
+              i.small.material-icons android
+              |  Android App
+            .video-container
+              iframe width="853" height="480" src="https://www.youtube.com/embed/N6f3i4qrlbY" frameborder="0" allowfullscreen=""
+            #google-play-logo
+  						a href="#" target="_blank"
+  							img.responsive-img src="../img/google-play.png"
+          .col.l4.offset-l2.s12
+            h5.white-text
+              i.small.material-icons info
+              |  About
+            p.grey-text.text-lighten-4
+              | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            br
+            h5.white-text
+              i.small.material-icons mail
+              |  Contact
+            p.grey-text.text-lighten-4
+              | Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      .footer-copyright
+        .container
+          | &copy; 2016 • 
+          a href="http://adriel.cafe" target="_blank"
+            | Adriel Café
+    
+    script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"
+  	script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"
+  	script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"
+  	script type="text/javascript" src="https://www.parsecdn.com/js/parse-latest.js"
+  	script type="text/javascript" src="../js/app.min.js"
