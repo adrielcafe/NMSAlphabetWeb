@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 
-var slimIndexFiles = './index.slim';
+var slimIndexFile = './index.slim';
 var slimFiles = ['./*.slim', './html/*.slim'];
 var scssFiles = './css/*.sass';
 var jsFiles = ['./js/*.js', '!./js/*.min.js'];
@@ -17,7 +17,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('slim', function(){
-  gulp.src(slimIndexFiles)
+  gulp.src(slimIndexFile)
     .pipe(slim({pretty: true}))
     .pipe(gulp.dest('./'));
 });
