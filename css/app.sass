@@ -18,6 +18,13 @@ body
   padding: 100px 0
   margin-top: -100px
 
+  .skewed-line-header
+    position: relative
+    outline: 1px solid transparent
+    background: $secondary-color
+    padding: 3px 0
+    bottom: -105px
+
   header
     @include transform(skew(0deg, -5deg))
     background: $primary-color
@@ -95,6 +102,11 @@ main
 
 footer
   background: $primary-color !important
+
+  .line-footer
+    background: $secondary-color
+    padding: 3px 0
+    margin-top: -25px
 
   .footer-copyright
     background: #191D24 !important
