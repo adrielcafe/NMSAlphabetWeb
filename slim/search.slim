@@ -1,0 +1,42 @@
+#search.col.s12
+  .content
+    .row
+      form.col.s12
+        .row
+          .input-field.col.s6
+            .card
+              .card-content
+                i.material-icons.prefix search
+                input#query.validate type="text" placeholder="Search for alien words"
+          .input-field.col.s6
+            .card
+              .card-content
+                select#races
+                  option value="0" selected="" All alien races
+                  option value="1" Korvax
+                  option value="2" Race 2
+                  option value="3" Race 3
+    #words.row
+      .col.s12
+        .row
+        
+           .col.m6.s12
+            .word.card.hoverable
+              .valign-wrapper
+                  h2.word-title.valign.white-text.flow-text.truncate EKINO
+              .card-content
+                .word-controls.row
+                  .col.s6
+                    h5 Korvax
+                  .col.s6
+                    select.languages
+                      option value="en" English
+                      option value="pt" Português
+                      option value="de" Deutsch
+                      
+                .word-translations.row
+                  .col.s12
+                    ul
+                      li Lorem ipsum
+                      li Lorem ipsum
+                      li Lorem ipsum

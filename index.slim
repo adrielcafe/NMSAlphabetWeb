@@ -12,7 +12,7 @@ html
     link rel="icon" type="image/png" href="../img/icon.png"
     link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons"
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/red/pace-theme-minimal.css"
-    link rel="stylesheet" href="../css/app.min.css"
+    link rel="stylesheet" href="css/app.min.css"
  
   body
     .skewed-bg
@@ -23,7 +23,8 @@ html
             .orbit
               .moon
           #logo.valign-wrapper
-              img.valign.responsive-img src="../img/logo.png"
+            object data="img/logo.svg" type="image/svg+xml" width="180" height="100"
+              img.valign.responsive-img src="img/logo.png"
         #signin.valign-wrapper
           img.circle.responsive-img src="http://www.adriel.cafe/img/adriel_cafe.jpg"
           p
@@ -42,9 +43,9 @@ html
               a.active href="#translate" Translate
   	        li.tab.col.s3.disabled
               a href="#profile" Profile
-        == Slim::Template.new('html/search.slim').render()
-        == Slim::Template.new('html/translate.slim').render()
-        == Slim::Template.new('html/profile.slim').render()
+        == Slim::Template.new('slim/search.slim').render()
+        == Slim::Template.new('slim/translate.slim').render()
+        == Slim::Template.new('slim/profile.slim').render()
     
     #fab-add.fixed-action-btn.horizontal
       a.btn-floating.btn-large
@@ -54,6 +55,30 @@ html
       .line-footer
       .container
         .row
+          .col.l4.s12
+            h5.white-text
+              i.small.material-icons info
+              |  About
+            p.grey-text.text-lighten-4
+              | NMS αβ (pronounced "alphabet") is an unofficial translation service of alien words for <a href="http://no-mans-sky.com">No Man's Sky</a>.
+            p.grey-text.text-lighten-4
+              | It is available for <a href="#">Web</a> and <a href="#">Android</a>.
+          .col.l4.s12
+            h5.white-text
+              i.small.material-icons code
+              |  Open Source
+            p.grey-text.text-lighten-4
+              | NMS αβ is a open source project under <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+            p.grey-text.text-lighten-4
+              | It's source code is available on GitHub, get it for <a href="">Web</a> and <a href="">Android</a>.
+          .col.l4.s12
+            h5.white-text
+              i.small.material-icons mail
+              |  Contact
+            p.grey-text.text-lighten-4
+              | From press? Need help? Have a question? Get in touch!
+            a.waves-effect.waves-light.btn href="mailto:me@adriel.cafe" target="_blank" Email Me
+        .row
           .col.l6.s12
             h5.white-text
               i.small.material-icons android
@@ -62,19 +87,7 @@ html
                 .responsive-video data-video-id="N6f3i4qrlbY" data-type="youtube"
             #google-play-logo
   						a href="#" target="_blank"
-  							img.responsive-img src="../img/google-play.png"
-          .col.l5.offset-l1.s12
-            h5.white-text
-              i.small.material-icons info
-              |  About
-            p.grey-text.text-lighten-4
-              | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            br
-            h5.white-text
-              i.small.material-icons mail
-              |  Contact
-            p.grey-text.text-lighten-4
-              | Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  							img.responsive-img src="img/google-play.png"
       .footer-copyright
         .container
           | &copy; 2016 
@@ -86,4 +99,4 @@ html
   	script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"
     script type="text/javascript" src="https://cdn.plyr.io/1.6.18/plyr.js"
   	script type="text/javascript" src="https://www.parsecdn.com/js/parse-latest.js"
-  	script type="text/javascript" src="../js/app.min.js"
+  	script type="text/javascript" src="js/app.min.js"

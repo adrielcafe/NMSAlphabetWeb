@@ -33,12 +33,15 @@ body
 
     #logo
       display: inline-flex
-      height: 200px
-      margin-left: 10px
+      height: 180px
+      margin-left: -165px
+
+      object
+        z-index: 1
 
       img
-        height: 100px
-        z-index: -1
+        height: 70px
+        z-index: 1
 
     #signin
       float: right
@@ -86,17 +89,21 @@ main
 
     #words
 
-      .card
+      .word
 
         .valign-wrapper
           height: 125px
           background: $secondary-color
 
-        h2
+        .word-title
           width: 100%
           padding: 20px
           text-align: center
+          font-weight: bold
           display: block
+
+        .word-controls
+          background: #EEEEEE
 
 footer
   background: $primary-color !important
