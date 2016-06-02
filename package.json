@@ -11,6 +11,7 @@
   "devDependencies": {
     "browser-sync": "^2.12.10",
     "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.2",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
     "gulp-slim": "^0.3.0",
