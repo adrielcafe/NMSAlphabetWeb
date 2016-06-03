@@ -5,35 +5,33 @@
 @import 'materialize/materialize'
 @import 'plyr/plyr'
 
-$bg-color: #F5F5F5
-
 body
-  display: flex
-  flex-direction: column
+  @include display(flex)
+  @include flex-direction(column)
   min-height: 100vh
-  background: $bg-color
 
+
+// HEADER
 .skewed-bg
   @include transform(skew(0deg, 5deg))
-  outline: 1px solid transparent
-  background: $primary-color
-  padding: 100px 0
+  @include background($primary-color)
   margin-top: -100px
+  padding: 100px 0
+  outline: 1px solid transparent
 
   .skewed-line-header
-    position: relative
-    outline: 1px solid transparent
-    background: $secondary-color
+    @include position(relative, null null -105px null)
+    @include background($secondary-color)
     padding: 3px 0
-    bottom: -105px
+    outline: 1px solid transparent
 
   header
     @include transform(skew(0deg, -5deg))
-    background: $primary-color
+    @include background($primary-color)
     min-height: 260px
 
     #logo
-      display: inline-flex
+      @include display(inline-flex)
       height: 180px
       margin-left: -165px
 
@@ -45,87 +43,82 @@ body
         z-index: 1
 
     #signin
-      float: right
       height: 200px
+      float: right
 
       img
         height: 40px
         margin-right: 10px
 
+
+// MAIN
 main
-  flex: 1 0 auto
+  @include flex(1 0 auto)
   z-index: 1
 
   > .row
     @include border-top-radius(5px)
     @include border-right-radius(5px)
-    background: $bg-color
+    min-height: 500px
     margin-top: -160px
     padding: 20px
-    min-height: 500px
 
   .tabs
-    background: transparent
+    @include background(transparent)
 
   .content
     margin: 20px
 
   #search
 
-    form .input-field
+    form
 
-      .card-content
-        padding: 10px 20px
+      .input-field
 
-      input
-        border: none
-        box-shadow: none
-        margin: 0
-        font-size: 20px
+        .card-content
+          padding: 10px 20px
 
-      i
-        position: absolute
-        top: 17px
-        right: 10px
+        input
+          margin: 0
+          font-size: 20px
+          border: none
+          box-shadow: none
+
+        i
+          @include position(absolute, 17px 10px null null)
 
     #words
 
       .word
 
         .valign-wrapper
+          @include background($secondary-color)
           height: 125px
-          background: $secondary-color
 
         .word-title
+          @include display(block)
           width: 100%
           padding: 20px
-          text-align: center
           font-weight: bold
-          display: block
+          text-align: center
 
-        .word-controls
-          background: #EEEEEE
 
+// FOOTER
 footer
-  background: $primary-color !important
 
   .line-footer
-    background: $secondary-color
-    padding: 3px 0
+    @include background($secondary-color)
     margin-top: -25px
+    padding: 3px 0
 
   .footer-copyright
-    background: #191D24 !important
+    background: darken($primary-color, 5%) !important
 
   #google-play-logo
     text-align: center
 
     img
       height: 70px
-
-#fab-add
-  bottom: 32px
-  right: 32px
 
 
 // Logo animation
@@ -138,73 +131,73 @@ $logo-t: 1.92
 
 @keyframes orbit
   to
-    transform: rotate(360deg)
+    @include transform(rotate(360deg))
 
 @function orbit()
   @return $logo-animation $logo-gravitation-constant * $logo-t + s linear infinite
 
 #logo-anim
-  display: flex
-  background: $primary-color
-  margin: 5%
+  @include display(flex)
+  @include background($primary-color)
   float: left
+  margin: 5%
 
   .planet
-    background: $logo-planet-color
-    box-shadow: inset -15px -15px 0px darken($logo-planet-color, 2%)
+    @include background($logo-planet-color)
     width: 100px
     height: 100px
     border-radius: 100%
+    box-shadow: inset -15px -15px 0px darken($logo-planet-color, 2%)
 
     &:before
-      content: ''
-      background: darken($logo-planet-color, 5%)
-      border-radius: 100%
+      @include display(block)
+      @include background(darken($logo-planet-color, 5%))
       width: 10px
       height: 10px
-      display: block
       margin: 25px 50px
+      border-radius: 100%
+      content: ''
 
     &:after
-      content: ''
-      background: darken($logo-planet-color, 4%)
-      border-radius: 100%
+      @include display(block)
+      @include background(darken($logo-planet-color, 4%))
       width: 25px
       height: 25px
-      display: block
       margin: -10px 20px
+      border-radius: 100%
+      content: ''
 
   .orbit
+    @include position(absolute)
     width: 150px
     height: 150px
-    border: 1px solid rgba(255, 255, 255, 0.12)
-    position: absolute
-    border-radius: 100%
     margin: -25px -125px
+    border: 1px solid rgba(255, 255, 255, 0.12)
+    border-radius: 100%
     animation: orbit()
 
     .moon
-      background: $logo-moon-color
-      box-shadow: inset -7px -7px 0 darken($logo-moon-color, 7%)
+      @include background($logo-moon-color)
       width: 25px
       height: 25px
-      border-radius: 100%
       margin: 10px
+      border-radius: 100%
+      box-shadow: inset -7px -7px 0 darken($logo-moon-color, 7%)
 
       &:before
-        content: ''
-        background: darken($logo-moon-color, 4%)
-        border-radius: 100%
+        @include display(inline-block)
+        @include background(darken($logo-moon-color, 4%))
         width: 4.5px
         height: 4.5px
-        display: inline-block
         margin: 5px 5px
+        border-radius: 100%
+        content: ''
 
       &:after
-        content: ''
-        background: darken($logo-moon-color, 4%)
-        border-radius: 100%
+        @include display(block)
+        @include background(darken($logo-moon-color, 4%))
         width: 4.5px
         height: 4.5px
-        display: block
         margin: -3.5px 10px
+        border-radius: 100%
+        content: ''
