@@ -55,7 +55,7 @@ html
       .line-footer
       .container
         .row
-          .col.l4.s12
+          .col.l3.m6
             h5.white-text
               i.small.material-icons info
               |  About
@@ -63,35 +63,33 @@ html
               | NMS αβ (pronounced "alphabet") is an unofficial translation service of alien words for <a href="http://no-mans-sky.com">No Man's Sky</a>.
             p.grey-text.text-lighten-4
               | It is available for <a href="#">Web</a> and <a href="#">Android</a>.
-          .col.l4.s12
+          .col.l4.m12.offset-l1
             h5.white-text
-              i.small.material-icons code
-              |  Open Source
-            p.grey-text.text-lighten-4
-              | NMS αβ is a open source project under <a href="https://opensource.org/licenses/MIT">MIT License</a>.
-            p.grey-text.text-lighten-4
-              | It's source code is available on GitHub, get it for <a href="">Web</a> and <a href="">Android</a>.
-          .col.l4.s12
+              i.small.material-icons android
+              |  Android App
+            .plyr
+                .responsive-video data-video-id="N6f3i4qrlbY" data-type="youtube"
+            #google-play-logo.center-align
+              a href="#" target="_blank"
+                img.responsive-img src="img/google-play.png"
+          .col.l3.m6.offset-l1
             h5.white-text
               i.small.material-icons mail
               |  Contact
             p.grey-text.text-lighten-4
               | From press? Need help? Have a question? Get in touch!
             a.waves-effect.waves-light.btn href="mailto:me@adriel.cafe" target="_blank" Email Me
-        .row
-          .col.l6.s12
-            h5.white-text
-              i.small.material-icons android
-              |  Android App
-            .plyr
-                .responsive-video data-video-id="N6f3i4qrlbY" data-type="youtube"
-            #google-play-logo
-  						a href="#" target="_blank"
-  							img.responsive-img src="img/google-play.png"
       .footer-copyright
         .container
-          | &copy; 2016 
-          a href="http://adriel.cafe" target="_blank" Adriel Café
+          .left
+            | &copy; 2016 
+            a href="http://adriel.cafe" target="_blank" Adriel Café
+          .right
+            | Source code of 
+            a href="#" target="_blank" Web
+            |  and 
+            a href="#" target="_blank" Android
+            |  app
           
     script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
     script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"
