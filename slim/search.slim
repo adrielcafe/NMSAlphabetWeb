@@ -1,49 +1,61 @@
 #search.col.s12
   .content
-    .row
+    .row.search-controls
       form.col.s12
         .row
           .input-field.col.s6
-            .card
-              .card-content
-                i.material-icons.prefix search
-                input#query.validate type="text" placeholder="Search for alien words"
+            .card-panel
+              i.material-icons.prefix search
+              input#query.validate type="text" placeholder="Search for alien words"
           .input-field.col.s6
-            .card
-              .card-content
-                select#races
-                  option value="0" selected="" All alien races
-                  option value="1" Korvax
-                  option value="2" Race 2
-                  option value="3" Race 3
+            .card-panel
+              select#races
+                option value="0" selected="" All alien races
+                option value="1" Korvax
+                option value="2" Race 2
+                option value="3" Race 3
     #words.row
       .col.s12
         .row data-animation="hierarchical-display"
           - @words = ['ILUKI', 'EKINO', 'TARUS', 'LADO', 'ETEREC']
           - @words.each do |word|
             .col.l4.s12
-              .word.card.hoverable
+              .word.card-panel.hoverable
                 .word-header.valign-wrapper
                     h4.valign.white-text.center-align #{word}
                 .word-subheader.row.valign-wrapper.grey.lighten-3
                     .col.s7.valign
-                      h5 Korvax
+                      span.truncate Korvax
                     .col.s5
                       select.languages
                         option.left value="en" data-icon="img/flag-uk.png" English
                         option.left value="pt" data-icon="img/flag-br.png" Português
                         option.left value="de" data-icon="img/flag-de.png" Deutsch
-                .card-content
-                  .word-translations.row
-                    .col.s12
-                      ul
-                        li 
-                          | Lorem
-                          div
-                            i.material-icons.right thumb_up
-                            span.dislike.new.badge 9
-                          div
-                            i.material-icons.right thumb_down
-                            span.like.new.badge 999
-                        li Ipsum
-                        li Dolor
+                .word-translations
+                  - @translations = ['LOREM', 'IPSUM', 'DOLOR']
+                  - @translations.each do |translation|
+                    .translation.row
+                      .col.s8.valign-wrapper
+                          span.truncate.valign #{translation}
+                      .col.s2.dislike
+                          span.new.badge 123
+                          i.material-icons thumb_down
+                      .col.s2.like
+                          span.new.badge 321
+                          i.material-icons thumb_up
+                .word-controls.row
+                  .col.s4
+                    a href="#"
+                      i.material-icons.tiny add
+                      |  Add
+                  .col.s44
+                    a href="#"
+                      i.material-icons.tiny list
+                      |  See All
+                  .col.s44
+                    a href="#"
+                      i.material-icons.tiny share
+                      |  Share
+                      
+    .center-align
+      a.btn.waves-effect.waves-light More

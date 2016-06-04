@@ -4,7 +4,6 @@
 @import 'bourbon/bourbon'
 @import 'materialize/materialize'
 @import 'plyr/plyr'
-@import 'responsive-heading'
 
 body
   @include display(flex)
@@ -72,11 +71,14 @@ main
 
   #search
 
+    .search-controls
+      margin-bottom: 0
+
     form
 
       .input-field
 
-        .card-content
+        .card-panel
           min-height: 65px
           padding: 10px 20px
 
@@ -87,11 +89,12 @@ main
           box-shadow: none
 
         i
-          @include position(absolute, 17px 10px null null)
+          @include position(absolute, 25px 10px null null)
 
     #words
 
       .word
+        padding: 0
 
         .word-header
           @include background($secondary-color)
@@ -104,35 +107,61 @@ main
         .word-subheader
           margin: 0
 
-          h5
-            margin-top: 0
-            margin-bottom: 0
-            font-weight: lighter
+          div
+
+            > span
+              font-weight: bold
 
           .select-dropdown
             margin: 0
             border-bottom: none
 
             li
+              min-height: 0
+              padding: 5px
 
               img
                 width: auto
+                height: 15px
+                margin: 5px
+
+              span
+                padding: 2px
+                font-size: 12px
 
         .word-translations
+          padding: 10px 20px
 
-          .like, .dislike
-            position: relative
-            clear: both
-            margin-top: 5px
+          .translation
+            margin: 0
 
-          .like:after, .dislike::after
-            content: ''
+            .s8
+              padding: 0
+              height: 50px
 
-          .like
-            float: right
+              span
+                font-size: 20px
+                font-weight: normal
 
-          .dislike
-            float: left
+            .s2
+              padding: 0
+              text-align: center
+
+              .material-icons
+                @include display(block)
+                font-size: 16px
+
+              .badge
+                @include position(relative, null 0 null null)
+
+              .badge:after
+                content: ''
+
+        .word-controls
+          margin: 0
+          padding: 10px
+          text-align: center
+          border-top: 1px solid rgba(160, 160, 160, 0.2)
 
 
 // FOOTER
