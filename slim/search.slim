@@ -18,25 +18,32 @@
                   option value="3" Race 3
     #words.row
       .col.s12
-        .row
-        
-           .col.m6.s12
-            .word.card.hoverable
-              .valign-wrapper
-                  h2.word-title.valign.white-text.flow-text.center-align EKINO
-              .card-content
-                .word-controls.row.grey.lighten-3
-                  .col.s6
-                    h5 Korvax
-                  .col.s6
-                    select.languages
-                      option value="en" English
-                      option value="pt" Português
-                      option value="de" Deutsch
-                      
-                .word-translations.row
-                  .col.s12
-                    ul
-                      li Lorem ipsum
-                      li Lorem ipsum
-                      li Lorem ipsum
+        .row data-animation="hierarchical-display"
+          - @words = ['ILUKI', 'EKINO', 'TARUS', 'LADO', 'ETEREC']
+          - @words.each do |word|
+            .col.l4.s12
+              .word.card.hoverable
+                .word-header.valign-wrapper
+                    h4.valign.white-text.center-align #{word}
+                .word-subheader.row.valign-wrapper.grey.lighten-3
+                    .col.s7.valign
+                      h5 Korvax
+                    .col.s5
+                      select.languages
+                        option.left value="en" data-icon="img/flag-uk.png" English
+                        option.left value="pt" data-icon="img/flag-br.png" Português
+                        option.left value="de" data-icon="img/flag-de.png" Deutsch
+                .card-content
+                  .word-translations.row
+                    .col.s12
+                      ul
+                        li 
+                          | Lorem
+                          div
+                            i.material-icons.right thumb_up
+                            span.dislike.new.badge 9
+                          div
+                            i.material-icons.right thumb_down
+                            span.like.new.badge 999
+                        li Ipsum
+                        li Dolor

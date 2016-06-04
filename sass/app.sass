@@ -4,6 +4,7 @@
 @import 'bourbon/bourbon'
 @import 'materialize/materialize'
 @import 'plyr/plyr'
+@import 'responsive-heading'
 
 body
   @include display(flex)
@@ -76,6 +77,7 @@ main
       .input-field
 
         .card-content
+          min-height: 65px
           padding: 10px 20px
 
         input
@@ -91,15 +93,46 @@ main
 
       .word
 
-        .valign-wrapper
+        .word-header
           @include background($secondary-color)
           height: 125px
 
-        .word-title
-          @include display(block)
-          width: 100%
-          padding: 20px
-          font-weight: bold
+          h4
+            width: 100%
+            font-weight: lighter
+
+        .word-subheader
+          margin: 0
+
+          h5
+            margin-top: 0
+            margin-bottom: 0
+            font-weight: lighter
+
+          .select-dropdown
+            margin: 0
+            border-bottom: none
+
+            li
+
+              img
+                width: auto
+
+        .word-translations
+
+          .like, .dislike
+            position: relative
+            clear: both
+            margin-top: 5px
+
+          .like:after, .dislike::after
+            content: ''
+
+          .like
+            float: right
+
+          .dislike
+            float: left
 
 
 // FOOTER
