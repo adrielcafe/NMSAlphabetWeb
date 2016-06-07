@@ -22,8 +22,8 @@
             .col.l4.s12
               .word.card-panel.hoverable
                 .word-header.valign-wrapper
-                    h4.valign.white-text.center-align #{word}
-                .word-subheader.row.valign-wrapper.grey.lighten-3
+                    h4.white-text.center-align.valign #{word}
+                .row.word-subheader.grey.lighten-3.valign-wrapper
                     .col.s7.valign
                       span.truncate Korvax
                     .col.s5
@@ -34,7 +34,7 @@
                 .word-translations
                   - @translations = ['LOREM', 'IPSUM', 'DOLOR']
                   - @translations.each do |translation|
-                    .translation.row
+                    .row.translation
                       .col.s8.valign-wrapper
                           span.truncate.valign #{translation}
                       .col.s2.dislike
@@ -55,7 +55,6 @@
                   .col.s44
                     a href="#"
                       i.material-icons.tiny share
-                      |  Share
-                      
+                      |  Share          
     .center-align
       a.btn.waves-effect.waves-light More

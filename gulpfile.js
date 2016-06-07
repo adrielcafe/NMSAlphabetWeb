@@ -2,6 +2,7 @@
 var browserSync = require('browser-sync').create();
 var gulp = require('gulp');
 var slim = require("gulp-slim");
+var eslint = require('gulp-eslint');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var cleanCSS = require('gulp-clean-css');
@@ -12,7 +13,7 @@ var slimFiles = ['./*.slim', './slim/*.slim'];
 var sassFiles = './sass/*.sass';
 var jsFiles = ['./js/*.js', '!./js/*.min.js'];
 
-gulp.task('server', ['slim', 'sass-cleancss', 'uglify', 'watch'], function() {
+gulp.task('server', ['slim', 'sass-cleancss', 'eslint', 'uglify', 'watch'], function() {
     browserSync.init({
         server: "./dist"
     });
@@ -33,9 +34,16 @@ gulp.task('sass-cleancss', function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task('uglify', function () {
+gulp.task('eslint', function () {
   return gulp.src(jsFiles)
-    .pipe(uglify())
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
+
+gulp.task('uglify', ['eslint'], function () {
+  return gulp.src(jsFiles)
+    // .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./dist/js'))
     .pipe(browserSync.stream());
@@ -45,7 +53,7 @@ gulp.task('watch', function () {
 	gulp.watch("./dist/*.html").on('change', browserSync.reload);
 	gulp.watch(slimFiles, ['slim']);
   gulp.watch(sassFiles, ['sass-cleancss']);
-	gulp.watch(jsFiles, ['uglify']);
+	gulp.watch(jsFiles, ['eslint', 'uglify']);
 });
 
 gulp.task('default', ['server']);
