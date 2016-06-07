@@ -14,20 +14,20 @@ body
 // HEADER
 .skewed-bg
   @include transform(skew(0deg, 5deg))
-  @include background($primary-color)
+  background: $primary-color
   margin-top: -100px
   padding: 100px 0
   outline: 1px solid transparent
 
   .skewed-line-header
     @include position(relative, null null -105px null)
-    @include background($secondary-color)
+    background: $secondary-color
     padding: 3px 0
     outline: 1px solid transparent
 
   header
     @include transform(skew(0deg, -5deg))
-    @include background($primary-color)
+    background: $primary-color
     min-height: 260px
 
     #logo
@@ -64,7 +64,7 @@ main
     padding: 20px
 
   .tabs
-    @include background(transparent)
+    background: transparent
 
   .content
     margin: 20px
@@ -97,7 +97,7 @@ main
         padding: 0
 
         .word-header
-          @include background($secondary-color)
+          background: $secondary-color
           height: 125px
 
           h4
@@ -168,7 +168,7 @@ main
 footer
 
   .line-footer
-    @include background($secondary-color)
+    background: $secondary-color
     margin-top: -25px
     padding: 3px 0
 
@@ -198,12 +198,12 @@ $logo-t: 1.92
 
 #logo-anim
   @include display(flex)
-  @include background($primary-color)
+  background: $primary-color
   float: left
   margin: 5%
 
   .planet
-    @include background($logo-planet-color)
+    background: $logo-planet-color
     width: 100px
     height: 100px
     border-radius: 100%
@@ -211,7 +211,7 @@ $logo-t: 1.92
 
     &:before
       @include display(block)
-      @include background(darken($logo-planet-color, 5%))
+      background: darken($logo-planet-color, 5%)
       width: 10px
       height: 10px
       margin: 25px 50px
@@ -220,7 +220,7 @@ $logo-t: 1.92
 
     &:after
       @include display(block)
-      @include background(darken($logo-planet-color, 4%))
+      background: darken($logo-planet-color, 4%)
       width: 25px
       height: 25px
       margin: -10px 20px
@@ -237,7 +237,7 @@ $logo-t: 1.92
     animation: orbit()
 
     .moon
-      @include background($logo-moon-color)
+      background: $logo-moon-color
       width: 25px
       height: 25px
       margin: 10px
@@ -246,7 +246,7 @@ $logo-t: 1.92
 
       &:before
         @include display(inline-block)
-        @include background(darken($logo-moon-color, 4%))
+        background: darken($logo-moon-color, 4%)
         width: 4.5px
         height: 4.5px
         margin: 5px 5px
@@ -255,7 +255,7 @@ $logo-t: 1.92
 
       &:after
         @include display(block)
-        @include background(darken($logo-moon-color, 4%))
+        background: darken($logo-moon-color, 4%)
         width: 4.5px
         height: 4.5px
         margin: -3.5px 10px

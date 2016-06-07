@@ -1,49 +1,47 @@
 
-var browserSync = require('browser-sync').create();
-var gulp = require('gulp');
-var slim = require("gulp-slim");
-var eslint = require('gulp-eslint');
-var uglify = require('gulp-uglify');
-var sass = require('gulp-sass');
-var cleanCSS = require('gulp-clean-css');
-var rename = require('gulp-rename');
+var browserSync = require('browser-sync').create(),
+    gulp = require('gulp'),
+    slim = require("gulp-slim"),
+    eslint = require('gulp-eslint'),
+    uglify = require('gulp-uglify'),
+    sass = require('gulp-sass'),
+    cleanCSS = require('gulp-clean-css'),
+    autoprefixer = require('gulp-autoprefixer'),
+    rename = require('gulp-rename');
 
-var slimIndexFile = './index.slim';
-var slimFiles = ['./*.slim', './slim/*.slim'];
-var sassFiles = './sass/*.sass';
-var jsFiles = ['./js/*.js', '!./js/*.min.js'];
+var slimIndexFile = './index.slim',
+    slimFiles = ['./*.slim', './slim/*.slim'],
+    sassFiles = './sass/*.sass',
+    jsFiles = './js/*.js';
 
-gulp.task('server', ['slim', 'sass-cleancss', 'eslint', 'uglify', 'watch'], function() {
-    browserSync.init({
-        server: "./dist"
-    });
+gulp.task('server', ['build:html', 'build:css', 'build:js', 'watch'], function() {
+  browserSync.init({
+    server: "./dist"
+  });
 });
 
-gulp.task('slim', function(){
+gulp.task('build:html', function(){
   gulp.src(slimIndexFile)
     .pipe(slim({pretty: false}))
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('sass-cleancss', function () {
+gulp.task('build:css', function () {
   return gulp.src(sassFiles)
 		.pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({browsers: ['last 2 versions']}))
     // .pipe(cleanCSS({keepSpecialComments: '0'}))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.stream());
 });
 
-gulp.task('eslint', function () {
+gulp.task('build:js', function () {
   return gulp.src(jsFiles)
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-});
-
-gulp.task('uglify', ['eslint'], function () {
-  return gulp.src(jsFiles)
-    // .pipe(uglify())
+    .pipe(eslint.failAfterError())
+      // .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./dist/js'))
     .pipe(browserSync.stream());
@@ -51,9 +49,9 @@ gulp.task('uglify', ['eslint'], function () {
 
 gulp.task('watch', function () {
 	gulp.watch("./dist/*.html").on('change', browserSync.reload);
-	gulp.watch(slimFiles, ['slim']);
-  gulp.watch(sassFiles, ['sass-cleancss']);
-	gulp.watch(jsFiles, ['eslint', 'uglify']);
+	gulp.watch(slimFiles, ['build:html']);
+  gulp.watch(sassFiles, ['build:css']);
+	gulp.watch(jsFiles, ['build:js']);
 });
 
 gulp.task('default', ['server']);
