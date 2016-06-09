@@ -33,19 +33,16 @@ html
             b.white-text Adriel Café
             br
             a href="#" Sign Out
-      .skewed-line-header
     
     main.container
       .row.grey.lighten-4
         .col.s12
   	      ul.tabs
   	        li.tab.col.s3
-              a.active href="#search" Search
-  	        li.tab.col.s3
               a.active href="#translate" Translate
-  	        li.tab.col.s3.disabled
+  	        li.tab.col.s3
               a href="#profile" Profile
-        == Slim::Template.new('slim/search.slim').render()
+      .row.grey.lighten-4
         == Slim::Template.new('slim/translate.slim').render()
         == Slim::Template.new('slim/profile.slim').render()
     
@@ -54,7 +51,6 @@ html
         i.material-icons.large add
         
     footer.page-footer
-      .line-footer
       .container
         .row
           .col.l3.m6

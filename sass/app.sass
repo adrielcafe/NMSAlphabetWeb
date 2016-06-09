@@ -15,20 +15,14 @@ body
 .skewed-bg
   @include transform(skew(0deg, 5deg))
   background: $primary-color
-  margin-top: -100px
-  padding: 100px 0
+  margin-top: -70px
+  padding: 70px 0
   outline: 1px solid transparent
-
-  .skewed-line-header
-    @include position(relative, null null -105px null)
-    background: $secondary-color
-    padding: 3px 0
-    outline: 1px solid transparent
 
   header
     @include transform(skew(0deg, -5deg))
     background: $primary-color
-    min-height: 260px
+    min-height: 225px
 
     #logo
       @include display(inline-flex)
@@ -59,8 +53,7 @@ main
   > .row
     @include border-top-radius(5px)
     @include border-right-radius(5px)
-    min-height: 500px
-    margin-top: -160px
+    margin-top: -100px
     padding: 20px
 
   .tabs
@@ -69,9 +62,9 @@ main
   .content
     margin: 20px
 
-  #search
+  #translate
 
-    .search-controls
+    .translate-controls
       margin-bottom: 0
 
     form
@@ -166,11 +159,6 @@ main
 
 // FOOTER
 footer
-
-  .line-footer
-    background: $secondary-color
-    margin-top: -25px
-    padding: 3px 0
 
   .footer-copyright
     background: darken($primary-color, 5%) !important
