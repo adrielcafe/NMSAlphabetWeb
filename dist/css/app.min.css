@@ -6668,7 +6668,7 @@ body {
   .skewed-bg header {
     transform: skew(0deg, -5deg);
     background: #222831;
-    min-height: 225px; }
+    min-height: 230px; }
     .skewed-bg header #logo {
       display: -webkit-inline-box;
       display: -moz-inline-box;
