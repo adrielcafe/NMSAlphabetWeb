@@ -11,6 +11,8 @@ var browserSync = require('browser-sync').create()
     rename = require('gulp-rename'),
     iff = require('gulp-if');
 
+var minify = argv.minify !== undefined;
+
 var slimIndexFile = './index.slim',
     slimFiles = ['./*.slim', './slim/*.slim'],
     sassFiles = './sass/*.sass',
@@ -24,7 +26,7 @@ gulp.task('server', ['build:html', 'build:css', 'build:js', 'watch'], function()
 
 gulp.task('build:html', function(){
   gulp.src(slimIndexFile)
-    .pipe(slim({pretty: !argv.minify}))
+    .pipe(slim())
     .pipe(gulp.dest('./dist'));
 });
 
@@ -32,7 +34,7 @@ gulp.task('build:css', function () {
   return gulp.src(sassFiles)
 		.pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions']}))
-    .pipe(iff(argv.minify, cleanCSS({keepSpecialComments: '0'})))
+    .pipe(iff(minify, cleanCSS({keepSpecialComments: '0'})))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.stream());
@@ -43,7 +45,7 @@ gulp.task('build:js', function () {
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
-    .pipe(iff(argv.minify, uglify()))
+    .pipe(iff(minify, uglify()))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./dist/js'))
     .pipe(browserSync.stream());

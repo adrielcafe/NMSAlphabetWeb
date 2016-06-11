@@ -6721,53 +6721,53 @@ main {
     position: absolute;
     top: 25px;
     right: 10px; }
-  main #translate #words .word {
+  main #translate .words .word {
     padding: 0; }
-    main #translate #words .word .word-header {
+    main #translate .words .word .word-header {
       background: #B7494E;
       height: 125px; }
-      main #translate #words .word .word-header h4 {
+      main #translate .words .word .word-header h4 {
         width: 100%;
         font-weight: lighter; }
-    main #translate #words .word .word-subheader {
+    main #translate .words .word .word-subheader {
       margin: 0; }
-      main #translate #words .word .word-subheader div > span {
+      main #translate .words .word .word-subheader div > span {
         font-weight: bold; }
-      main #translate #words .word .word-subheader .select-dropdown {
+      main #translate .words .word .word-subheader .select-dropdown {
         margin: 0;
         border-bottom: none; }
-        main #translate #words .word .word-subheader .select-dropdown li {
+        main #translate .words .word .word-subheader .select-dropdown li {
           min-height: 0;
           padding: 5px; }
-          main #translate #words .word .word-subheader .select-dropdown li img {
+          main #translate .words .word .word-subheader .select-dropdown li img {
             width: auto;
             height: 15px;
             margin: 5px; }
-          main #translate #words .word .word-subheader .select-dropdown li span {
+          main #translate .words .word .word-subheader .select-dropdown li span {
             padding: 2px;
             font-size: 12px; }
-    main #translate #words .word .word-translations {
+    main #translate .words .word .word-translations {
       padding: 10px 20px; }
-      main #translate #words .word .word-translations .translation {
+      main #translate .words .word .word-translations .translation {
         margin: 0; }
-        main #translate #words .word .word-translations .translation .s8 {
+        main #translate .words .word .word-translations .translation .s8 {
           padding: 0;
           height: 50px; }
-          main #translate #words .word .word-translations .translation .s8 span {
+          main #translate .words .word .word-translations .translation .s8 span {
             font-size: 20px;
             font-weight: normal; }
-        main #translate #words .word .word-translations .translation .s2 {
+        main #translate .words .word .word-translations .translation .s2 {
           padding: 0;
           text-align: center; }
-          main #translate #words .word .word-translations .translation .s2 .material-icons {
+          main #translate .words .word .word-translations .translation .s2 .material-icons {
             display: block;
             font-size: 16px; }
-          main #translate #words .word .word-translations .translation .s2 .badge {
+          main #translate .words .word .word-translations .translation .s2 .badge {
             position: relative;
             right: 0; }
-          main #translate #words .word .word-translations .translation .s2 .badge:after {
+          main #translate .words .word .word-translations .translation .s2 .badge:after {
             content: ''; }
-    main #translate #words .word .word-controls {
+    main #translate .words .word .word-controls {
       margin: 0;
       padding: 10px;
       text-align: center;
